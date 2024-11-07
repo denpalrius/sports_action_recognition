@@ -1,0 +1,40 @@
+# JupyterNotebooks
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
+
+# OS
+**/.DS_Store
+
+# VS Code
+.idea
+yolo-8/datasets/
+yolo-8/runs
+yolo-8/yolov8s.pt
+
+# Data
+datasets/
+
+# PyTorch models
+**.pth
+
+# Python env
+ai-ml/**
+embeddings/**/model.bin
+
+# Models
+**.h5
+**.hdf5
+**.keras
+
+# Video RNN files
+video_rnn/ucf101_top5.tar.gz
+video_rnn/ucf101_top5.tar.gz.1
+video_rnn/animation.gif
+video_rnn/train.csv
+video_rnn/test.csv
+video_rnn/train
+video_rnn/test/
