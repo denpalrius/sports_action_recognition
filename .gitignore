@@ -38,3 +38,6 @@ video_rnn/train.csv
 video_rnn/test.csv
 video_rnn/train
 video_rnn/test/
+video_rnn/rnn/animation.gif
+video_rnn/tst/ucf_sports_actions.zip
+video_rnn/tst/tst.ipynb
