@@ -15,8 +15,6 @@ yolo-8/datasets/
 yolo-8/runs
 yolo-8/yolov8s.pt
 
-# Data
-
 # PyTorch models
 **.pth
 
@@ -32,6 +30,7 @@ embeddings/**/model.bin
 # Data files
 data/
 datasets/
+temp/
 
 # Test files
 tst.**
