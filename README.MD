@@ -2,7 +2,7 @@
 
 This project focuses on fine-grained sports action recognition using two main architectures:
 
-1. **CNN-based Sequence Models**: These models combine CNNs for feature extraction with RNNs for temporal sequence modeling:
+1. **CNN-based Sequence Models**: These models combine CNNs for feature extraction with RNNs(GRU layers) for temporal sequence modeling:
    - **VGG19**
    - **InceptionV3**
    - **InceptionV4-ResNet (hybrid model)**
