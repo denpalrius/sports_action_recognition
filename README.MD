@@ -1,7 +1,3 @@
-Here's the updated README with the two architectures mentioned concisely:
-
----
-
 # Temporal Sequence Modeling for Sports Action Recognition
 
 This project focuses on fine-grained sports action recognition using two main architectures:
