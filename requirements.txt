@@ -1,0 +1,9 @@
+keras
+tensorflow
+numpy
+pandas
+opencv-python
+scikit-learn
+imageio
+imutils
+kagglehub
