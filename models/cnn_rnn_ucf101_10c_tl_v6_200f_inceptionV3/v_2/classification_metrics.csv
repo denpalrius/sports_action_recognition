@@ -1,0 +1,12 @@
+Class,Precision,Recall,F1-score,Support
+SkyDiving,0.0,0.0,0.0,14.0
+Biking,0.0,0.0,0.0,17.0
+HorseRace,0.0,0.0,0.0,16.0
+Surfing,0.0,0.0,0.0,16.0
+TennisSwing,0.0,0.0,0.0,21.0
+Punch,0.69,0.55,0.61,20.0
+Basketball,0.19,0.97,0.31,34.0
+JumpRope,0.0,0.0,0.0,18.0
+Archery,0.0,0.0,0.0,19.0
+Skiing,0.0,0.0,0.0,17.0
+accuracy,0.23,192.0,,
