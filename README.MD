@@ -10,20 +10,6 @@ This project focuses on fine-grained sports action recognition using two main ar
 
 2. **ViViT (Video Vision Transformer)**: A pure transformer-based approach for end-to-end video classification, capturing both spatial and temporal features.
 
-## Requirements
-
-```bash
-keras
-tensorflow
-numpy
-pandas
-opencv-python
-scikit-learn
-imageio
-imutils
-kagglehub
-einops  # for ViViT
-```
 
 ## Model Architectures
 
