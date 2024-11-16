@@ -11,12 +11,6 @@ class FeatureExtractor:
         self.feature_extractor = self._build_feature_extractor()
 
     def _build_feature_extractor(self):
-        """
-        Builds the InceptionV3 feature extractor.
-
-        Returns:
-        keras.Model: Feature extractor model.
-        """
         base_model = keras.applications.InceptionV3(
             weights="imagenet",
             include_top=False,
@@ -32,15 +26,6 @@ class FeatureExtractor:
         return keras.Model(inputs, outputs, name="feature_extractor")
 
     def _extract_features(self, frames: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-        """
-        Extracts features from frames using the feature extractor model.
-
-        Args:
-        frames (np.ndarray): Input frames.
-
-        Returns:
-        Tuple[np.ndarray, np.ndarray]: Extracted features and mask.
-        """
         if len(frames) == 0:
             return np.zeros(
                 (self.config.max_sequence_length, self.config.num_features)

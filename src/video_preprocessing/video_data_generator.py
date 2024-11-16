@@ -4,26 +4,7 @@ from typing import List
 from config import VideoClassificationConfig
 
 class VideoDataGenerator(keras.utils.Sequence):
-    """
-    Custom data generator for loading and preprocessing video data efficiently.
-    
-    Attributes:
-    df (pandas.DataFrame): DataFrame containing video metadata.
-    class_vocab (List[str]): List of class labels.
-    config (VideoClassificationConfig): Configuration settings.
-    is_training (bool): Flag indicating training or validation mode.
-    """
-
     def __init__(self, df, class_vocab: List[str], config: VideoClassificationConfig, is_training: bool = True):
-        """
-        Initializes the VideoDataGenerator.
-        
-        Args:
-        df (pandas.DataFrame): DataFrame containing video metadata.
-        class_vocab (List[str]): List of class labels.
-        config (VideoClassificationConfig): Configuration settings.
-        is_training (bool): Flag indicating training or validation mode (default: True).
-        """
         self.df = df
         self.config = config
         self.is_training = is_training
@@ -38,24 +19,9 @@ class VideoDataGenerator(keras.utils.Sequence):
             np.random.shuffle(self.indexes)
 
     def __len__(self):
-        """
-        Returns the number of batches per epoch.
-        
-        Returns:
-        int: Number of batches.
-        """
         return int(np.ceil(len(self.df) / self.config.batch_size))
 
     def __getitem__(self, idx):
-        """
-        Gets a batch of data.
-        
-        Args:
-        idx (int): Batch index.
-        
-        Returns:
-        Tuple[np.ndarray, np.ndarray]: Batch features and labels.
-        """
         # Get batch indexes
         batch_indexes = self.indexes[idx * self.config.batch_size:(idx + 1) * self.config.batch_size]
         
@@ -80,9 +46,6 @@ class VideoDataGenerator(keras.utils.Sequence):
         return [batch_features, batch_masks], batch_labels
 
     def on_epoch_end(self):
-        """
-        Called at the end of every epoch.
-        """
         if self.is_training:
             np.random.shuffle(self.indexes)
 

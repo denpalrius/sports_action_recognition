@@ -3,29 +3,12 @@ from config import VideoClassificationConfig
 
 
 class VideoClassifierModel:
-    """
-    Class for building and compiling the video classification model.
-    """
-
     def __init__(self, config: VideoClassificationConfig, num_classes: int):
-        """
-        Initializes the VideoClassifierModel.
-        
-        Args:
-        config (VideoClassificationConfig): Configuration settings.
-        num_classes (int): Number of classes.
-        """
         self.config = config
         self.num_classes = num_classes
         self.model = self.build_model()
 
     def build_model(self) -> keras.Model:
-        """
-        Builds the video classification model.
-        
-        Returns:
-        keras.Model: Video classification model.
-        """
         
         # Input layers
         frame_features_input = keras.Input((self.config.max_sequence_length, self.config.num_features))
@@ -77,9 +60,6 @@ class VideoClassifierModel:
         return model
 
     def compile_model(self):
-        """
-        Compiles the video classification model.
-        """
         self.model.compile(
             optimizer=keras.optimizers.Adam(self.config.learning_rate),
             loss='sparse_categorical_crossentropy',
@@ -87,12 +67,6 @@ class VideoClassifierModel:
         )
 
     def get_model(self) -> keras.Model:
-        """
-        Returns the compiled video classification model.
-        
-        Returns:
-        keras.Model: Compiled video classification model.
-        """
         return self.model
 
 

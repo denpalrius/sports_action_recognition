@@ -10,54 +10,19 @@ import os
 
 
 class VideoClassifierTrainer:
-    """
-    Class for training the video classification model.
-    """
-
+    
     def __init__(self, config: VideoClassificationConfig):
-        """
-        Initializes the VideoClassifierTrainer.
-        
-        Args:
-        config (VideoClassificationConfig): Configuration settings.
-        """
         self.config = config
 
     def create_data_generators(self, train_df, val_df, class_vocab):
-        """
-        Creates training and validation data generators.
-        
-        Args:
-        train_df (pandas.DataFrame): Training data.
-        val_df (pandas.DataFrame): Validation data.
-        class_vocab (List[str]): Class labels.
-        
-        Returns:
-        tuple: Training and validation data generators.
-        """
         train_generator = VideoDataGenerator(train_df, class_vocab, self.config, is_training=True)
         val_generator = VideoDataGenerator(val_df, class_vocab, self.config, is_training=False)
         return train_generator, val_generator
 
     def build_model(self, class_vocab):
-        """
-        Builds the video classification model.
-        
-        Args:
-        class_vocab (List[str]): Class labels.
-        
-        Returns:
-        keras.Model: Video classification model.
-        """
         return VideoClassifierModel(self.config, len(class_vocab)).get_model()
 
     def define_callbacks(self):
-        """
-        Defines training callbacks.
-        
-        Returns:
-        list: List of training callbacks.
-        """
         return [
             keras.callbacks.ModelCheckpoint(
                 # TODO: Pass as param
@@ -80,17 +45,6 @@ class VideoClassifierTrainer:
         ]
 
     def train_model(self, train_df, val_df, class_vocab):
-        """
-        Trains the video classification model.
-        
-        Args:
-        train_df (pandas.DataFrame): Training data.
-        val_df (pandas.DataFrame): Validation data.
-        class_vocab (List[str]): Class labels.
-        
-        Returns:
-        tuple: Trained model and training history.
-        """
         train_generator, val_generator = self.create_data_generators(train_df, val_df, class_vocab)
         model = self.build_model(class_vocab)
         callbacks = self.define_callbacks()

@@ -14,12 +14,6 @@ class VideoClassifierPipeline:
         self.trainer = VideoClassifierTrainer(config)
 
     def download_dataset(self):
-        """
-        Downloads the UCF101 dataset from Kaggle.
-        
-        Returns:
-        str: Path to the downloaded dataset.
-        """
         return dataset_download("matthewjansen/ucf101-action-recognition")
 
     def load_dataset(self, dataset_type, path):
@@ -70,9 +64,6 @@ class VideoClassifierPipeline:
         return evaluate_model(model, test_generator)
 
     def run_pipeline(self):
-        """
-        Runs the video classification pipeline.
-        """
         path = self.download_dataset()
         print("Path to dataset files: \n", path)
         print("\nFiles in dataset directory:\n", os.listdir(path))
@@ -109,6 +100,6 @@ class VideoClassifierPipeline:
         save_model(model, "video_classifier.keras")
 
 
-if __name__ == "__main__":
-    pipeline = VideoClassifierPipeline(VideoClassificationConfig())
-    pipeline.run_pipeline()
+# if __name__ == "__main__":
+#     pipeline = VideoClassifierPipeline(VideoClassificationConfig())
+#     pipeline.run_pipeline()
