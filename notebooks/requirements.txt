@@ -11,3 +11,4 @@ matplotlib
 wandb
 seaborn
 ipython
+keras-tcn

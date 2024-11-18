@@ -30,6 +30,7 @@ embeddings/**/model.bin
 # **.keras
 
 # Data files
+**/data.zip
 data/
 datasets/
 temp/
